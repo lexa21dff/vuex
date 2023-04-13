@@ -1,32 +1,33 @@
 <template>
-  <div id="app">
+  <div >
     <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <Nabvar></Nabvar>
     </nav>
     <router-view/>
   </div>
 </template>
+<script>
+import axios from 'axios'
+import Nabvar from '@/components/Nabvar.vue';
+export default {
+  components:{
+    Nabvar
+  },
+  methods:{
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+    beforeCreate() {
+      this.$store.commit('initializeStore')
+  
+      const token = this.$store.state.user.token
+  
+      if (token) {
+        axios.defaults.headers.common['Authorization'] = "Token " + token
+      } else {
+        axios.defaults.headers.common['Authorization'] = ""
+      }
+    }
+  }
 }
 
-nav {
-  padding: 30px;
-}
+</script>
 
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
