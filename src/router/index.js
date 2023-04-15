@@ -6,6 +6,8 @@ import InicioView from '@/views/Inicio.vue'
 import ListaProyectoView from '@/views/ListaProyecto.vue'
 import VerProyectoView from '@/views/VerProyecto.vue'
 
+import CrearProyectoView from '@/views/CrearProyecto.vue'
+import Categoria from '@/components/Categoria.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -33,7 +35,17 @@ const routes = [
     path:'verProyecto/:id',
     name: 'verProyecto',
     component: VerProyectoView
-  }
+  },
+  {
+    path:'/crearProyecto',
+    name: 'crearProyecto',
+    component: CrearProyectoView
+  },
+  {
+    path:'/categoria',
+    name: 'categoria',
+    component: Categoria
+  },
 ]
 
 const router = new VueRouter({

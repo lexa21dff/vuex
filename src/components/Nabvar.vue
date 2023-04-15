@@ -26,7 +26,7 @@
                             <a class="nav-link active" aria-current="page" href="#">Crear Proyecto</a>
                         </li>
                         <li class="nav-item">
-                            <button @click="logout()" class="nav"  >Log out</button>
+                            <button @click="logout()" class="nav"  >cerrar sesion</button>
                         </li>
                     </ul>
                 </template>
